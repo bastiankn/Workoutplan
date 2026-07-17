@@ -1,266 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-bs-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout Plan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #ffffff;
-            color: #000000;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .list-group-item {
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        .nav-tabs .nav-link.active {
-            background-color: #e9ecef;
-            color: #000000;
-        }
-
-        .nav-tabs .nav-link {
-            color: #000000;
-        }
-
-        .dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
-
-        .dark-mode .list-group-item {
-            background-color: #1e1e1e;
-            color: #ffffff;
-        }
-
-        .dark-mode .nav-tabs .nav-link.active {
-            background-color: #333;
-            color: #ffffff;
-        }
-
-        .dark-mode .nav-tabs .nav-link {
-            color: #ffffff;
-        }
-
-        .dark-mode .form-check-label {
-            color: #ffffff;
-        }
-
-        /* Styling for the dark mode toggle */
-        .dark-mode-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A personal gym, calisthenics, skills, and mobility knowledge base.">
+  <title>Training Knowledge Base</title>
+  <script>
+    (() => {
+      let saved = null;
+      try { saved = localStorage.getItem('training-theme'); } catch (error) { /* Storage may be disabled. */ }
+      const theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.bsTheme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="dark-mode-toggle">
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
-            <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
-        </div>
-    </div>
-    
-    <div class="container mt-5">
-        <ul class="nav nav-tabs" id="workoutTabs" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="general-tab" data-bs-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="chest-tab" data-bs-toggle="tab" href="#chest" role="tab" aria-controls="chest" aria-selected="false">Chest</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="back-tab" data-bs-toggle="tab" href="#back" role="tab" aria-controls="back" aria-selected="false">Back</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="arms-tab" data-bs-toggle="tab" href="#arms" role="tab" aria-controls="arms" aria-selected="false">Shoulders & Arms</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="legs-tab" data-bs-toggle="tab" href="#legs" role="tab" aria-controls="legs" aria-selected="false">Legs</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="accessories-tab" data-bs-toggle="tab" href="#accessories" role="tab" aria-controls="accessories" aria-selected="false">Accessories</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="workoutTabContent">
-            <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
-                <div class="mt-3">
-                    <ul class="list-group">
-                        <!-- 
-                        <li class="list-group-item">Nur Fleisch macht Fleisch</li>
-                        <li class="list-group-item">Hart, schwer und richtig</li>
-                        <li class="list-group-item">Wer regelkonform trainiert, sieht halt auch regelkonform aus</li>
-                        <li class="list-group-item">8-12 Wochen 3-5 Übungen, 3-5 Sets, 3-5 Wiederholungen</li>
-                        <li class="list-group-item">Keine Supersets (BCAA) EAAs wenn möglich während des Trainings</li>
-                        <li class="list-group-item">8-12 Wochen 6 Übungen, 3 Sets, 8-12 Wiederholungen</li>
-                        <li class="list-group-item">Wenn du einem Pferd in den Arsch trittst und es kein Rennpferd ist, rennt es auch nicht schneller</li>
-                        <li class="list-group-item">Pyramiden Prinzip: (Mit Gewicht) leicht anfangen, dann steigern</li>
-                        <li class="list-group-item">Als Warm-Up: 10-20 Wiederholungen ohne Gewicht</li>
-                        <li class="list-group-item">Mit höherer Satzzahl pro Übung beginnen</li>
-                        <li class="list-group-item">z.B. 10 Wdh, 8 Wdh. 4 Wdh.</li>
-                        <li class="list-group-item">Immer wieder auch mal ne Wiederholung mehr rausholen</li>
-                        <li class="list-group-item">Progression ist wichtig, aber nicht in jedem Training</li>
-                        <li class="list-group-item">1,5-2 min Pause, mit steigendem Gewicht länger</li>
-                        <li class="list-group-item">Negativbewegungen mitnehmen</li>
-                        <li class="list-group-item">Mal mehr Wiederholungen, mal mehr Negativbewegungen, mal mehr Gewicht</li>k
-                        -->
-                        <li class="list-group-item">Alle 2-3 Wochen auf Maximalkraft gehen</li>
-                        <li class="list-group-item">Sonst mit 80% des Maximalgewichts</li>
-                        <li class="list-group-item">Evtl. als letzten Satz mit weniger Gewicht auf Negativbewegung konzentrieren</li>
-                        <li class="list-group-item">Dropset: Hälfte des Maximalgewichts, doppelte Wiederholungszahl</li>
-                        
-                    </ul>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="chest" role="tabpanel" aria-labelledby="chest-tab">
-                <div class="mt-3">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <h5>Bankdrücken</h5>
-                            <p>- aussen greifen<br>- Bank auf erste Stufe<br>- Affengriff<br>-3-4cm bis zum Brustmuskel ablassen<br>- Multipresse schräg oder gerade beides ok</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Incline Bankdrücken</h5>
-                            <p>- Schrägbank auf 60*</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Dips</h5>
-                            <p>- bis maximal 90*<br>- full range of motion<br>- vorstellen mit Arm zu rudern</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Cable Crossover</h5>
-                            <p>- Arme gestreckt<br>- vor die untere Brust<br>- Beine auf einer Höhe<br>- Kabel von unten<br>- leichteres Gewicht</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="back" role="tabpanel" aria-labelledby="back-tab">
-                <div class="mt-3">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <h5>Klimmzüge</h5>
-                            <p>-zur Brust ziehen<br>- Ellenbogen nach außen</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Lat Pull Down</h5>
-                            <p>- breiter Griff<br>- bis zur Brust ziehen<br>- mit Bank auf ca. 135°/45°<br>- Beine nach hinten Stellen<br>- Spannung im Latissimus<br>- vollkommen ausdehnen lassen</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Rows</h5>
-                            <p>- einarmig</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Überzüge</h5>
-                            <p>- halb Kreis<br>- Arme zusammen<br>- zum Bauch hin<br>- Bizep rausnehemen<br>- hoher Wiederholungsbereich<br>- zwei Sätze</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Bent over Row</h5>
-                            <p>- Langhantel</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="arms" role="tabpanel" aria-labelledby="arms-tab">
-                <div class="mt-3">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <h5>Over Head Press</h5>
-                            <p>-- 4-5 Sätze von leicht zu schwer<br>- 5 Satz Reduktionssatz 3x 10 Wdh.</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Seitheben</h5>
-                            <p></p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Rudern an der Schrägbank / Face Pulls</h5>
-                            <p>- weiter Hebel, gerade hoch gehen<br>- leichter Winkel<br>- beim hochziehen in einem Halbkreis, nicht gerade hoch<br>- Arme zusammen bringen<br>- Schulter fast parallel zum Boden</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>(isolierte) Bizep Curls</h5>
-                            <p>Mit links (schwachem Arm starten) & und am Peak anspannen (oben bewusst Bizeps anspannen)<br>- letzte Wiederholung halten<br>- langsam ablassen</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Skullcrusher (Superset mit Bizeps)</h5>
-                            <p></p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Bizep-Curls</h5>
-                            <p>- optional mit Bank am Kabelturm nach Rühl zur Stirn</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Trizep Push down</h5>
-                            <p></p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Hammercurls auf Schrägbank</h5>
-                            <p></p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="legs" role="tabpanel" aria-labelledby="legs-tab">
-                <div class="mt-3">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <h5>Squats</h5>
-                            <p>- Decke fixieren (Kopf nach oben)<br>- leichtes Hohlkreuz<br>- Schulterbreiter Stand<br>- leichter V-Stand<br>- Oberschenkel parallel zum Boden (oder 10 Grad tiefer)<br>- Langhantel vorne möglich</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Leg Press</h5>
-                            <p></p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Leg Extensions</h5>
-                            <p>- oben kurz halten</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Leg Curls</h5>
-                            <p></p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="accessories" role="tabpanel" aria-labelledby="accessories-tab">
-                <div class="mt-3">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <h5>Unterarm Langhantelbank Curls</h5>
-                            <p>- Schulterbreit<br>- hoch gehen so weit wies geht<br>- kein Schwung holen<br>- Unterarm auf Bank</p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Bauchmuskeltraining</h5>
-                            <p><a href="https://www.youtube.com/watch?v=9oAbP7LHT9Q" target="_blank">YouTube Video</a></p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Neck Curls</h5>
-                            <p></p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Shrugs</h5>
-                            <p></p>
-                        </li>
-                        <li class="list-group-item">
-                            <h5>Calf Raises</h5>
-                            <p></p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        const toggleSwitch = document.getElementById('darkModeSwitch');
-        const body = document.body;
+  <a class="visually-hidden-focusable skip-link" href="#mainContent">Skip to content</a>
 
-        toggleSwitch.addEventListener('change', () => {
-            body.classList.toggle('dark-mode');
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <header class="site-header border-bottom">
+    <nav class="navbar navbar-expand-xl" aria-label="Main navigation">
+      <div class="container-fluid page-shell">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#overview" data-section-link="overview">
+          <span class="brand-mark" aria-hidden="true"><i class="bi bi-journal-bookmark-fill"></i></span>
+          <span>Training Base</span>
+        </a>
+        <div class="d-flex align-items-center gap-2 order-xl-3">
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Switch theme" title="Switch theme">
+            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i>
+          </button>
+          <button class="navbar-toggler icon-button" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse order-xl-2" id="mainNav">
+          <ul class="navbar-nav ms-xl-auto me-xl-3 mb-3 mb-xl-0" id="sectionNav">
+            <li class="nav-item"><a class="nav-link active" href="#overview" data-section-link="overview">Overview</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gym" data-section-link="gym">Gym</a></li>
+            <li class="nav-item"><a class="nav-link" href="#calisthenics" data-section-link="calisthenics">Calisthenics</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills" data-section-link="skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#mobility" data-section-link="mobility">Mobility</a></li>
+            <li class="nav-item"><a class="nav-link" href="#weekly" data-section-link="weekly">Weekly Plan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#library" data-section-link="library">Exercise Library</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="mainContent" class="page-shell">
+    <section class="view active" id="overview" data-section="overview" tabindex="-1">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">Personal reference system</p>
+          <h1>Train with context.</h1>
+          <p class="hero-copy">Gym programming, calisthenics alternatives, skill progressions, mobility, and joint-health work—organized in one quiet, searchable knowledge base.</p>
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <button class="btn btn-primary" data-open-section="gym">Browse gym plan</button>
+            <button class="btn btn-outline-secondary" data-open-section="weekly">View weekly framework</button>
+          </div>
+        </div>
+        <div class="hero-summary" aria-label="Knowledge base summary">
+          <div><strong id="exerciseCount">0</strong><span>Exercises</span></div>
+          <div><strong id="skillCount">0</strong><span>Skills</span></div>
+          <div><strong>10–15</strong><span>Min mobility</span></div>
+        </div>
+      </div>
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">At a glance</p><h2>Everything has its place</h2></div>
+      </div>
+      <div class="overview-grid" id="overviewCards"></div>
+      <div class="principles-panel mt-4">
+        <div class="section-heading compact-heading"><div><p class="eyebrow">Original notes</p><h2>General training principles</h2></div></div>
+        <div class="row g-3" id="principlesList"></div>
+      </div>
+    </section>
+
+    <section class="view" id="gym" data-section="gym" tabindex="-1">
+      <div class="section-heading">
+        <div><p class="eyebrow">Arnold-style split</p><h1>Gym plan</h1><p>Original exercises and technique notes, enriched with relationships where useful.</p></div>
+      </div>
+      <div class="category-tabs" id="gymTabs" role="tablist" aria-label="Gym categories"></div>
+      <div id="gymContent"></div>
+    </section>
+
+    <section class="view" id="calisthenics" data-section="calisthenics" tabindex="-1">
+      <div class="section-heading">
+        <div><p class="eyebrow">Bodyweight training</p><h1>Calisthenics plan</h1><p>Push, pull, legs, and accessory movements with gym equivalents and scalable progressions.</p></div>
+      </div>
+      <div class="category-tabs" id="calisthenicsTabs" role="tablist" aria-label="Calisthenics categories"></div>
+      <div id="calisthenicsContent"></div>
+    </section>
+
+    <section class="view" id="skills" data-section="skills" tabindex="-1">
+      <div class="section-heading">
+        <div><p class="eyebrow">Progression maps</p><h1>Skills</h1><p>Prerequisites, ladders, requirements, and placement guidance—without level tracking.</p></div>
+      </div>
+      <div class="accordion card-accordion" id="skillsContent"></div>
+    </section>
+
+    <section class="view" id="mobility" data-section="mobility" tabindex="-1">
+      <div class="section-heading">
+        <div><p class="eyebrow">Move well</p><h1>Mobility</h1><p>A short daily foundation, rotating morning focus, targeted warm-ups, and optional recovery work.</p></div>
+      </div>
+      <div class="category-tabs" id="mobilityTabs" role="tablist" aria-label="Mobility categories"></div>
+      <div id="mobilityContent"></div>
+    </section>
+
+    <section class="view" id="weekly" data-section="weekly" tabindex="-1">
+      <div class="section-heading">
+        <div><p class="eyebrow">Flexible framework</p><h1>Weekly plan</h1><p>Rotate sessions in order according to recovery and schedule. No fixed weekdays required.</p></div>
+      </div>
+      <div id="weeklyContent"></div>
+    </section>
+
+    <section class="view" id="library" data-section="library" tabindex="-1">
+      <div class="section-heading library-heading">
+        <div><p class="eyebrow">All movements</p><h1>Exercise library</h1><p>Search names, notes, equipment, categories, equivalents, and tags.</p></div>
+      </div>
+      <div class="filter-panel">
+        <label class="search-box" for="librarySearch">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input id="librarySearch" type="search" class="form-control" placeholder="Search the library…" autocomplete="off">
+        </label>
+        <div class="tag-filters" id="tagFilters" aria-label="Filter by tag"></div>
+        <button class="btn btn-sm btn-link clear-filters" id="clearFilters" type="button">Clear filters</button>
+      </div>
+      <p class="results-count" id="resultsCount" aria-live="polite"></p>
+      <section class="joint-health-panel" id="jointHealthPanel">
+        <div class="section-heading compact-heading">
+          <div><p class="eyebrow">Accessory map</p><h2>Joint health & resilience</h2><p>Use these categories to connect small, targeted movements with the main plan.</p></div>
+        </div>
+        <div class="joint-health-grid" id="jointHealthContent"></div>
+      </section>
+      <div id="libraryContent"></div>
+      <div class="empty-state d-none" id="emptyState"><i class="bi bi-search"></i><h2>No matching exercises</h2><p>Try another term or clear the active tag.</p></div>
+    </section>
+  </main>
+
+  <footer class="page-shell site-footer"><p>Personal training knowledge base · Static, private-by-design, and easy to maintain.</p></footer>
+
+  <noscript><div class="alert alert-warning m-3">This knowledge base needs JavaScript to render its exercise data.</div></noscript>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
