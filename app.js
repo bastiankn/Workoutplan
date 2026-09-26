@@ -127,27 +127,36 @@ const trainingPrinciples = [
 ];
 
 const dailyMobility = {
-  'Daily base — approximately 8–10 minutes':[
-    'Cat-Cow — 6–8 slow repetitions (spine)',
-    'Open-Book Thoracic Rotation — 5 repetitions per side (thoracic mobility)',
-    'Wall Slides — 8–10 controlled repetitions (shoulder flexion)',
-    'Supported Shoulder Extension Hold — 20–30 seconds (shoulder extension)',
-    'Wrist sequence: circles, palm rocks, and gentle back-of-hand rocks — 30–45 seconds each',
-    '90/90 Hip Switch — 6–8 repetitions per side (hips)',
-    'Deep Lunge — 20–30 seconds per side (hips)',
-    'Pike Stretch or Seated Forward Fold — 30–45 seconds (hamstrings)',
-    'Knee-over-Toe Mobilization — 8–10 controlled repetitions per side (ankles)'
+  'Floor sequence':[
+    { id:'cat-cow', name:'Cat-Cow', prescription:'6–8 slow repetitions', description:'Practices controlled spinal flexion and extension.', cues:['Move slowly with the breath','Use a comfortable, pain-free range'], equipment:['None'] },
+    { id:'childs-pose', name:'Child’s Pose', prescription:'30–45 seconds', description:'A relaxed floor position for gentle spinal, shoulder, and hip movement.', cues:['Breathe normally','Do not force the shoulders or hips'], equipment:['None'] },
+    { id:'cobra-gentle-upward-dog', name:'Cobra or Gentle Upward-Dog Variation', prescription:'5–8 gentle repetitions or a 15–20-second hold', description:'Practices comfortable spinal extension from the floor.', cues:['Keep the range comfortable','Do not force lumbar extension','Stop if symptoms occur'], equipment:['None'] },
+    { id:'open-book-thoracic-rotation', name:'Open-Book Thoracic Rotation', prescription:'5 controlled repetitions per side', description:'Practices controlled thoracic rotation in a side-lying position.', cues:['Keep the movement slow','Rotate only as far as can be controlled comfortably'], equipment:['None'] },
+    { id:'supine-spinal-twist', name:'Supine Spinal Twist', prescription:'20–30 seconds per side', description:'A relaxed, non-forced rotational stretch performed on the back.', cues:['Bend one leg and guide it gently across the body','Keep the opposite shoulder as close to the floor as comfortably possible','Do not force the end position'], equipment:['None'] },
+    { id:'90-90-hip-switch', name:'90/90 Hip Switch', prescription:'6–8 controlled repetitions per side', description:'Practices controlled hip rotation while seated on the floor.', cues:['Use the hands for support if necessary','Move only through a range you can control'], equipment:['None'] },
+    { id:'pike-seated-forward-fold', name:'Pike Stretch or Seated Forward Fold', prescription:'30–45 seconds', description:'A comfortable seated hamstring stretch.', cues:['Keep the stretch mild to moderate','Avoid forcing spinal flexion'], equipment:['None'] }
   ],
-  'Optional add-ons — choose 1–3 for a 10–15-minute total':[
-    'Child’s Pose — 30–45 seconds',
-    'Cobra or Upward Dog — 5–8 gentle repetitions or a 20-second hold',
-    'Shoulder CARs — 3 slow circles per direction',
-    'Band or Broomstick Pass-Throughs — 8–12 controlled repetitions',
-    'Additional Shoulder Flexion Drill — 30–45 seconds',
-    'Finger Pulses — 10–15 repetitions',
-    'World’s Greatest Stretch — 3–5 repetitions per side',
-    'Light Jefferson Curl — 1–2 sets × 5–8 slow reps; optional and unloaded or very lightly loaded',
-    'Deep Squat Hold — 30–60 seconds with support if needed'
+  'Standing sequence':[
+    { id:'deep-lunge', name:'Deep Lunge', prescription:'20–30 seconds per side', description:'A standing lunge stretch emphasizing the hip flexor and front of the hip.', cues:['Use support if needed','Keep the range comfortable and controlled'], equipment:['None'] },
+    { id:'knee-over-toe-ankle-mobilization', name:'Knee-over-Toe Ankle Mobilization', prescription:'8–12 controlled repetitions per side', description:'Practices controlled ankle dorsiflexion in a standing position.', cues:['Keep the heel down','Guide the knee in line with the toes','Use a pain-free range'], equipment:['None'] },
+    { id:'standing-calf-stretch', name:'Standing Calf Stretch', prescription:'20–30 seconds per side', description:'A standing calf stretch performed with the heel kept down.', cues:['Use a straight knee for the primary version','A slightly bent-knee version may place more emphasis on the soleus','Keep the stretch comfortable'], equipment:['None'] }
+  ],
+  'Wall / supported finish':[
+    { id:'supported-shoulder-extension-hold', name:'Supported Shoulder Extension Hold', prescription:'20–30 seconds', description:'A supported hold used to practice a comfortable shoulder-extension range.', cues:['Place the hands on a sofa, bench, chair, or similar support','Use a comfortable range','Avoid forcing the shoulders'], equipment:['Chair, sofa, bench, or similar support'] },
+    { id:'wall-slides', name:'Wall Slides', prescription:'8–10 controlled repetitions', description:'Practices controlled shoulder flexion against a wall.', cues:['Keep the ribs controlled','Move only through a range that can be maintained without pain','Finish the routine here'], equipment:['Wall'] }
+  ],
+  'Additional stretches and optional mobility':[
+    { id:'neck-safety-guidance', name:'Neck-stretch safety guidance', prescription:'Perform slowly and use a mild stretch only. Do not pull aggressively on the head. Stop for dizziness, tingling, numbness, radiating pain, or sharp pain. Neck circles are not required.', library:false },
+    { id:'neck-flexion-stretch', name:'Neck Flexion Stretch', prescription:'15–20 seconds', description:'A gentle stretch using a small, controlled forward head movement.', cues:['Perform slowly and use only a mild stretch','Do not pull aggressively on the head','Stop if dizziness, tingling, numbness, radiating pain, or sharp pain occurs'], equipment:['None'], tags:['neck'] },
+    { id:'neck-extension-stretch', name:'Neck Extension Stretch', prescription:'10–15 seconds', description:'A gentle, controlled upward head movement through a comfortable range.', cues:['Perform slowly and use only a mild stretch','Do not push or pull on the head','Stop if dizziness, tingling, numbness, radiating pain, or sharp pain occurs'], equipment:['None'], tags:['neck'] },
+    { id:'upper-trapezius-side-neck-stretch', name:'Upper Trapezius / Side Neck Stretch', prescription:'15–20 seconds per side', description:'A mild side-bending stretch for the side of the neck.', cues:['Keep the opposite shoulder relaxed','Do not pull aggressively on the head','Stop if dizziness, tingling, numbness, radiating pain, or sharp pain occurs'], equipment:['None'], tags:['neck'] },
+    { id:'levator-scapulae-stretch', name:'Levator Scapulae Stretch', prescription:'15–20 seconds per side', description:'A mild diagonal neck stretch performed through a comfortable range.', cues:['Turn slightly and look toward the front pocket','Do not pull aggressively on the head','Stop if dizziness, tingling, numbness, radiating pain, or sharp pain occurs'], equipment:['None'], tags:['neck'] },
+    { id:'gentle-neck-rotation', name:'Gentle Neck Rotation', prescription:'3–5 slow repetitions per side', description:'Practices controlled neck rotation without full neck circles.', cues:['Rotate only through a comfortable range','Keep the movement slow','Stop if dizziness, tingling, numbness, radiating pain, or sharp pain occurs'], equipment:['None'], tags:['neck'] },
+    { id:'finger-pulses', name:'Finger Pulses', prescription:'10–15 controlled repetitions', description:'A light finger and hand preparation drill.', cues:['Use a small, comfortable range','Stop if hand or wrist symptoms occur'], equipment:['None'], tags:['wrists'] },
+    { id:'additional-shoulder-flexion-drill', name:'Additional Shoulder Flexion Drill', prescription:'30–45 seconds', description:'Optional practice for a comfortable overhead shoulder range.', cues:['Keep the ribs controlled','Do not force the shoulders'], equipment:['Wall or support'], tags:['shoulders'] },
+    { id:'worlds-greatest-stretch', name:'World’s Greatest Stretch', prescription:'3–5 controlled repetitions per side', description:'An optional multi-joint mobility sequence combining a lunge and thoracic rotation.', cues:['Move slowly between positions','Use a comfortable, pain-free range'], equipment:['None'] },
+    { id:'light-jefferson-curl', name:'Light Jefferson Curl', prescription:'1–2 sets × 5–8 slow repetitions', description:'Optional controlled spinal-flexion practice using no load or a very light load.', cues:['Move segment by segment without forcing depth','Keep the load minimal','Stop if symptoms occur'], equipment:['None or very light weight'] },
+    { id:'deep-squat-hold', name:'Deep Squat Hold', prescription:'30–60 seconds', description:'An optional supported squat-position hold.', cues:['Use support if needed','Choose a comfortable depth','Keep the feet stable'], equipment:['Optional support'] }
   ]
 };
 
@@ -181,7 +190,19 @@ const jointHealth = [
 ];
 
 const mobilityLibrary = [
-  ...Object.entries(dailyMobility).flatMap(([category, items]) => items.map((name, index) => ({ id:`mob-${category}-${index}`.toLowerCase().replace(/[^a-z0-9]+/g,'-'), name, section:'Mobility', category, description:'Controlled mobility drill. Use a comfortable, pain-free range.', cues:['Move slowly','Do not force end range'], equipment:name.includes('Band') ? ['Band or broomstick'] : ['None'], tags:['mobility', category.toLowerCase()] }))),
+  ...Object.entries(dailyMobility).flatMap(([category, items]) => items.filter(item => item.library !== false).map(item => ({
+    id:`mob-${item.id}`,
+    name:item.name,
+    section:'Mobility',
+    category,
+    description:item.description || 'Optional controlled-range mobility practice.',
+    cues:item.cues || ['Move slowly','Use a comfortable, pain-free range'],
+    setsReps:item.prescription,
+    equipment:item.equipment || ['None'],
+    tags:['mobility', ...(item.tags || [])]
+  }))),
+  { id:'mob-shoulder-cars', name:'Shoulder CARs', section:'Mobility', category:'Workout preparation', description:'Controlled shoulder circles used in existing pre-workout preparation.', cues:['Move slowly through a comfortable range','Keep the torso controlled'], setsReps:'3 slow circles per direction', equipment:['None'], tags:['mobility','shoulders'] },
+  { id:'mob-shoulder-pass-throughs', name:'Band or Broomstick Pass-Throughs', section:'Mobility', category:'Workout preparation', description:'A shoulder range-of-motion drill retained for workout preparation rather than the daily routine.', cues:['Use a wide enough grip to keep the movement comfortable','Do not force the shoulders'], setsReps:'8–12 controlled repetitions', equipment:['Band or broomstick'], tags:['mobility','shoulders'] },
   { id:'farmer-walk', name:'Farmer’s Walk', section:'Accessories', category:'Grip and carries', description:'Bilateral loaded carry for grip and trunk strength.', cues:['Stand tall','Walk under control'], equipment:['Heavy dumbbells or implements'], tags:['grip','carry','joint-health'] },
   { id:'suitcase-carry', name:'Suitcase Carry', section:'Accessories', category:'Grip and carries', description:'Unilateral carry emphasizing anti-lateral-flexion strength.', cues:['Do not lean toward the load','Walk steadily'], equipment:['Dumbbell or kettlebell'], tags:['grip','core','carry'] },
   { id:'external-rotation', name:'External Rotations', section:'Accessories', category:'Shoulder and scapular health', description:'Light rotator-cuff external rotation.', cues:['Keep the shoulder quiet','Use controlled range'], equipment:['Band or cable'], tags:['shoulders','joint-health'] },
@@ -195,6 +216,104 @@ const calisthenicsCategories = ['Push','Pull','Legs','Accessories'];
 const mobilityCategories = ['Daily Morning Mobility','Rotating Morning Focus','Pre-Workout Warm-Ups','Optional Recovery Mobility','Mobility Library'];
 
 const allExercises = [...gymExercises, ...calisthenicsExercises, ...mobilityLibrary];
+
+const currentTrainingBlock = {
+  title:'Pull-Up Endurance & Upper-Body Growth',
+  duration:'8 weeks',
+  goals:[
+    'Increase clean strict pull-up repetitions with two focused exposures per cycle',
+    'Continue upper-body growth with dips trained twice per cycle',
+    'Maintain thighs with lower volume rather than pushing further growth',
+    'Grow calves using the standing calf-raise equipment available at the current gym'
+  ],
+  guidance:[
+    'Complete the four sessions in order and insert rest days according to recovery; the weekday does not matter.',
+    'Keep roughly 2–4 days between Pull-Up Session A and Pull-Up Session B.',
+    'Warm-up and ramp-up sets prepare the movement and are not counted as working sets.',
+    'When every planned set reaches the top of its range at the target RIR with repeatable technique, add the smallest practical load.',
+    'Stop or modify an exercise for sharp pain, joint pain, or a sudden loss of control.'
+  ],
+  sessions:[
+    {
+      number:'01', name:'Upper Push', purpose:'Upper-body growth with the heavier dip exposure.',
+      exercises:[
+        { exerciseId:'bench-press', setsReps:'3 sets × 5–10 reps', rest:'2–3 minutes', intensity:'1–3 RIR' },
+        { exerciseId:'gym-dips', setsReps:'3 sets × 6–10 reps', rest:'2–3 minutes', intensity:'1–2 RIR', note:'Use bodyweight until 3 × 10 is clean at 1–2 RIR. Then add the smallest available weight and build up again.' },
+        { exerciseId:'ohp', setsReps:'3 sets × 5–10 reps', rest:'2–3 minutes', intensity:'1–3 RIR' },
+        { exerciseId:'lateral-raise', setsReps:'3 sets × 12–20 reps', rest:'60–90 seconds', intensity:'1–3 RIR' },
+        { exerciseId:'triceps-pushdown', name:'Optional Triceps Isolation', setsReps:'2 sets × 10–15 reps', rest:'60–90 seconds', intensity:'1–3 RIR', optional:true, note:'Skip this when pressing and dips have already fatigued the triceps.' }
+      ]
+    },
+    {
+      number:'02', name:'Pull + Pull-Up A', purpose:'Large, repeatable pull-up sets followed by concise back and biceps work.',
+      exercises:[
+        { protocolId:'pullup-a' },
+        { exerciseId:'rows', name:'Single-Arm Row or Bent-Over Row', setsReps:'3 sets × 8–15 reps', rest:'90–150 seconds', intensity:'1–3 RIR', note:'Choose one row variation for the session rather than performing both.' },
+        { exerciseId:'pullovers', setsReps:'2–3 sets × 12–20 reps', rest:'60–90 seconds', intensity:'1–3 RIR' },
+        { exerciseId:'face-pull-row', setsReps:'3 sets × 12–20 reps', rest:'60–90 seconds', intensity:'2–4 RIR' },
+        { exerciseId:'isolated-curls', name:'One Biceps Curl Variation', setsReps:'3 sets × 8–15 reps', rest:'60–90 seconds', intensity:'1–3 RIR', note:'Use the single-arm, cable, or hammer-curl variation; one is enough.' }
+      ]
+    },
+    {
+      number:'03', name:'Lower Maintenance + Calves', purpose:'Maintain thigh strength and work capacity while prioritizing calf growth.',
+      exercises:[
+        { exerciseId:'squats', setsReps:'2 sets × 10–15 reps', rest:'2–3 minutes', intensity:'About 3 RIR', note:'Use a load that keeps breathing, bracing, depth, and repetition speed controlled.' },
+        { exerciseId:'leg-curl', setsReps:'2 sets × 15–20 reps', rest:'60–90 seconds', intensity:'2–3 RIR' },
+        { exerciseId:'leg-extension', setsReps:'1–2 sets × 15–20 reps', rest:'60–90 seconds', intensity:'2–3 RIR' },
+        { exerciseId:'calf-raises-gym', name:'Standing Calf Raise — Heavy', setsReps:'4–5 sets × 8–15 reps', rest:'60–120 seconds', intensity:'1–2 RIR', note:'Use a controlled bottom stretch and a brief contraction at the top.' }
+      ],
+      note:'Leg press is intentionally omitted from this block, but remains in the Gym plan and Exercise Library.'
+    },
+    {
+      number:'04', name:'Upper Mixed + Pull-Up B', purpose:'Pull-up volume plus a moderate second upper-body and calf exposure.',
+      exercises:[
+        { protocolId:'pullup-b' },
+        { exerciseId:'incline-bench', setsReps:'3 sets × 8–12 reps', rest:'2–3 minutes', intensity:'1–3 RIR' },
+        { exerciseId:'gym-dips', name:'Bodyweight Dips', setsReps:'2 sets × 8–15 reps', rest:'2–3 minutes', intensity:'About 2 RIR', note:'Keep this exposure easier than the weighted or heavier dips in Session 1.' },
+        { exerciseId:'cable-crossover', setsReps:'Optional: 2 sets × 12–20 reps', rest:'60–90 seconds', intensity:'1–3 RIR', optional:true },
+        { exerciseId:'lateral-raise', setsReps:'2–3 sets × 12–20 reps', rest:'60–90 seconds', intensity:'1–3 RIR' },
+        { exerciseId:'biceps-curls', name:'One Biceps Curl Variation', setsReps:'2 sets × 8–15 reps', rest:'60–90 seconds', intensity:'1–3 RIR' },
+        { exerciseId:'calf-raises-gym', name:'Standing Calf Raise — Volume', setsReps:'3 sets × 15–25 reps', rest:'60–90 seconds', intensity:'1–2 RIR', note:'Use a lighter load than Session 3 while keeping the same controlled range.' }
+      ]
+    }
+  ]
+};
+
+const pullUpProtocols = {
+  'pullup-a': {
+    name:'Pull-Up Session A — Large Sets',
+    summary:'Four descending sets with long rests. Train below failure so each repetition remains clean.',
+    steps:[
+      'Test one fresh strict maximum before starting the block: controlled dead hang, consistent grip, no kicking or substantial swinging.',
+      'Begin the first working set at roughly 90% of that maximum, then reduce each following set by about one repetition.',
+      'Rest 3–5 minutes between sets and keep approximately 1–2 clean repetitions in reserve.',
+      'Keep the same targets for the first two weeks. Then add one repetition to only one or two sets where possible.',
+      'Retest the strict maximum after 6–8 weeks rather than testing every session.'
+    ],
+    examples:[['6','5 / 4 / 3 / 2'],['7','6 / 5 / 4 / 3'],['8','7 / 6 / 5 / 4']]
+  },
+  'pullup-b': {
+    name:'Pull-Up Session B — Extended Set + EMOM',
+    summary:'Introduce the volume gradually instead of jumping immediately to the source program’s full workload.',
+    steps:[
+      'Perform one bodyweight set stopping at approximately 1 RIR.',
+      'Immediately continue with 3–6 clean band-assisted repetitions; stop before technique deteriorates.',
+      'Rest 3–5 minutes before starting the EMOM volume work.',
+      'Start with 1 pull-up at the top of every minute for 10 minutes. If clearly easy, use 2 repetitions for 8–10 minutes.',
+      'Progress one variable at a time: first add minutes, then add repetitions to selected minutes.',
+      'After two pain-free weeks, the extended set may occasionally be taken closer to failure. The source protocol’s 500%-of-maximum target is a later goal, not a week-one requirement.'
+    ]
+  }
+};
+
+const rirScale = [
+  { value:'4 RIR', meaning:'About four additional clean repetitions were possible.' },
+  { value:'3 RIR', meaning:'About three additional clean repetitions were possible.' },
+  { value:'2 RIR', meaning:'About two additional clean repetitions were possible.' },
+  { value:'1 RIR', meaning:'About one additional clean repetition was possible.' },
+  { value:'0 RIR', meaning:'Technical failure: no additional clean repetition was possible.' }
+];
+
 const state = { gymCategory:'General', calisthenicsCategory:'Push', mobilityCategory:'Daily Morning Mobility', search:'', tag:'' };
 
 const escapeHtml = value => String(value ?? '').replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
@@ -228,6 +347,64 @@ function renderTabs(containerId, categories, active, handler) {
   const container = document.getElementById(containerId);
   container.innerHTML = categories.map(category => `<button class="category-tab${category === active ? ' active' : ''}" type="button" role="tab" aria-selected="${category === active}" data-category="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join('');
   container.querySelectorAll('button').forEach(button => button.addEventListener('click', () => handler(button.dataset.category)));
+}
+
+function currentExerciseRow(item) {
+  if (item.protocolId) {
+    const protocol = pullUpProtocols[item.protocolId];
+    const examples = protocol.examples ? `<div class="pullup-examples"><span class="detail-label">Starting examples</span><div class="example-grid">${protocol.examples.map(([max, sets]) => `<div><strong>Max ${escapeHtml(max)}</strong><span>${escapeHtml(sets)}</span></div>`).join('')}</div></div>` : '';
+    return `<article class="protocol-card">
+      <div class="program-exercise-heading"><div><span class="protocol-label">Priority protocol</span><h3>${escapeHtml(protocol.name)}</h3></div><i class="bi bi-person-arms-up" aria-hidden="true"></i></div>
+      <p>${escapeHtml(protocol.summary)}</p>
+      <ol>${protocol.steps.map(step => `<li>${escapeHtml(step)}</li>`).join('')}</ol>
+      ${examples}
+      <a href="https://www.youtube.com/watch?v=AvyPcg3LnZc" target="_blank" rel="noopener noreferrer">Open source video <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+    </article>`;
+  }
+  const source = allExercises.find(exercise => exercise.id === item.exerciseId);
+  const name = item.name || source?.name || item.exerciseId;
+  const optional = item.optional ? '<span class="optional-badge">Optional</span>' : '';
+  return `<article class="program-exercise">
+    <div class="program-exercise-heading"><h3>${escapeHtml(name)}</h3>${optional}</div>
+    <div class="program-prescription">
+      <span><small>Sets & reps</small>${escapeHtml(item.setsReps)}</span>
+      <span><small>Rest</small>${escapeHtml(item.rest)}</span>
+      <span><small>Intensity</small>${escapeHtml(item.intensity)}</span>
+    </div>
+    ${item.note ? `<p class="program-note">${escapeHtml(item.note)}</p>` : ''}
+  </article>`;
+}
+
+function renderCurrentBlock() {
+  const content = document.getElementById('currentBlockContent');
+  content.innerHTML = `
+    <div class="block-summary">
+      <article class="block-intro-card">
+        <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+          <div><p class="eyebrow">${escapeHtml(currentTrainingBlock.duration)}</p><h2>${escapeHtml(currentTrainingBlock.title)}</h2></div>
+          <span class="meta-chip"><i class="bi bi-arrow-repeat" aria-hidden="true"></i>Four-session cycle</span>
+        </div>
+        ${list(currentTrainingBlock.goals)}
+      </article>
+      <article class="rir-card">
+        <p class="eyebrow">Effort guide</p><h2>Repetitions in reserve</h2>
+        <p>RIR estimates how many additional repetitions you could complete with the same clean technique.</p>
+        <div class="rir-grid">${rirScale.map(item => `<div><strong>${escapeHtml(item.value)}</strong><span>${escapeHtml(item.meaning)}</span></div>`).join('')}</div>
+      </article>
+    </div>
+    <div class="cycle-strip" aria-label="Current training cycle">${currentTrainingBlock.sessions.map((session, index) => `${index ? '<i class="bi bi-arrow-right" aria-hidden="true"></i>' : ''}<button type="button" data-jump-session="${escapeHtml(session.number)}"><small>${escapeHtml(session.number)}</small>${escapeHtml(session.name)}</button>`).join('')}</div>
+    <div class="program-sessions">${currentTrainingBlock.sessions.map(session => `<section class="program-session" id="current-session-${escapeHtml(session.number)}" tabindex="-1">
+      <header><div><p class="eyebrow">Session ${escapeHtml(session.number)}</p><h2>${escapeHtml(session.name)}</h2><p>${escapeHtml(session.purpose)}</p></div></header>
+      <div class="program-exercise-list">${session.exercises.map(currentExerciseRow).join('')}</div>
+      ${session.note ? `<p class="session-note"><i class="bi bi-info-circle" aria-hidden="true"></i>${escapeHtml(session.note)}</p>` : ''}
+    </section>`).join('')}</div>
+    <article class="block-guidance"><p class="eyebrow">Run the block</p><h2>Progression and recovery rules</h2>${list(currentTrainingBlock.guidance)}</article>`;
+
+  content.querySelectorAll('[data-jump-session]').forEach(button => button.addEventListener('click', () => {
+    const target = document.getElementById(`current-session-${button.dataset.jumpSession}`);
+    target?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start' });
+    target?.focus({ preventScroll:true });
+  }));
 }
 
 function renderGym() {
@@ -266,7 +443,7 @@ function renderMobility() {
   renderTabs('mobilityTabs', mobilityCategories, state.mobilityCategory, category => { state.mobilityCategory = category; renderMobility(); });
   const content = document.getElementById('mobilityContent');
   if (state.mobilityCategory === 'Daily Morning Mobility') {
-    content.innerHTML = `<div class="routine-card"><div class="d-flex flex-wrap justify-content-between gap-2 mb-3"><div><h2 class="h5 mb-1">Daily foundation</h2><p class="text-body-secondary mb-0">Complete the nine base drills, then choose optional add-ons only when time and recovery allow.</p></div><span class="meta-chip"><i class="bi bi-clock"></i>Approximately 10–15 minutes</span></div>${Object.entries(dailyMobility).map(([group, items]) => `<h3 class="mobility-group-title">${escapeHtml(group)}</h3><ul class="routine-list">${items.map(item => `<li><i class="bi bi-arrow-right-short"></i><span>${escapeHtml(item)}</span></li>`).join('')}</ul>`).join('')}</div>`;
+    content.innerHTML = `<div class="routine-card"><div class="d-flex flex-wrap justify-content-between gap-2 mb-3"><div><h2 class="h5 mb-1">Daily foundation</h2><p class="text-body-secondary mb-0">Complete the routine in order: floor work first, stand once for the lower-body sequence, then finish at the wall or support.</p></div><span class="meta-chip"><i class="bi bi-clock"></i>Approximately 10–15 minutes</span></div>${Object.entries(dailyMobility).map(([group, items]) => `<h3 class="mobility-group-title">${escapeHtml(group)}</h3><ul class="routine-list">${items.map(item => `<li><i class="bi bi-arrow-right-short"></i><span>${escapeHtml(`${item.name} — ${item.prescription}`)}</span></li>`).join('')}</ul>`).join('')}</div>`;
   } else if (state.mobilityCategory === 'Rotating Morning Focus') {
     content.innerHTML = `<div class="alert alert-secondary border-0">Choose one focus and rotate to the next over time. These are not assigned to fixed weekdays.</div>${routineCards(morningFocus)}`;
   } else if (state.mobilityCategory === 'Pre-Workout Warm-Ups') {
@@ -295,6 +472,7 @@ function renderWeekly() {
 
 function renderOverview() {
   const cards = [
+    { section:'current-block', icon:'bi-lightning-charge-fill', title:'Current 8-week block', text:'The active four-session plan for pull-up endurance, upper-body growth, calf growth, and lower-body maintenance.' },
     { section:'gym', icon:'bi-building', title:'Gym plan', text:'The original General, Chest, Back, Shoulders & Arms, Legs, and Accessories split.' },
     { section:'calisthenics', icon:'bi-person-arms-up', title:'Calisthenics', text:'Push, pull, legs, and accessory movements with scalable alternatives.' },
     { section:'skills', icon:'bi-signpost-split', title:'Skill progressions', text:'Nine structured ladders with prerequisites, requirements, and placement.' },
@@ -392,7 +570,7 @@ function setupTheme() {
 }
 
 function init() {
-  renderOverview(); renderGym(); renderCalisthenics(); renderSkills(); renderMobility(); renderWeekly(); setupFilters(); renderLibrary();
+  renderOverview(); renderCurrentBlock(); renderGym(); renderCalisthenics(); renderSkills(); renderMobility(); renderWeekly(); setupFilters(); renderLibrary();
   document.getElementById('jointHealthContent').innerHTML = renderJointHealthSummary();
   setupNavigation(); setupTheme();
   openSection(location.hash.slice(1) || 'overview', false);

@@ -93,6 +93,53 @@ a { color: var(--accent); }
 .principles-panel { padding: .25rem 1.5rem 1.5rem; background: var(--surface-soft); border-radius: var(--radius-lg); }
 .principle-card { height: 100%; padding: 1rem; color: var(--muted); font-size: .9rem; }
 
+.current-block-heading { align-items: center; }
+.active-block-badge { display: inline-flex; align-items: center; gap: .45rem; padding: .5rem .8rem; color: var(--accent-strong); background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); border-radius: 999px; font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.block-summary { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); gap: 1rem; }
+.block-intro-card, .rir-card, .program-session, .block-guidance { padding: 1.4rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+.block-intro-card h2, .rir-card h2, .block-guidance h2 { margin: 0; font-size: 1.35rem; letter-spacing: -.025em; }
+.block-intro-card ul, .block-guidance ul { margin: 1rem 0 0; padding-left: 1.15rem; }
+.block-intro-card li + li, .block-guidance li + li { margin-top: .4rem; }
+.rir-card > p:not(.eyebrow) { margin: .55rem 0 1rem; color: var(--muted); font-size: .9rem; }
+.rir-grid { display: grid; gap: .55rem; }
+.rir-grid div { display: grid; grid-template-columns: 4.2rem 1fr; gap: .75rem; align-items: start; padding: .65rem .75rem; background: var(--surface-soft); border-radius: .65rem; }
+.rir-grid strong { color: var(--accent-strong); font-size: .82rem; }
+.rir-grid span { color: var(--muted); font-size: .8rem; line-height: 1.45; }
+.cycle-strip { display: flex; align-items: center; gap: .55rem; overflow-x: auto; padding: 1rem; margin: 1rem 0; background: var(--surface-soft); border-radius: var(--radius); scrollbar-width: thin; }
+.cycle-strip button { display: inline-flex; flex: 0 0 auto; align-items: center; gap: .45rem; padding: .55rem .75rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: .65rem; font-size: .82rem; font-weight: 700; }
+.cycle-strip button:hover { border-color: var(--accent); color: var(--accent-strong); }
+.cycle-strip button small { color: var(--accent); font-weight: 850; }
+.cycle-strip > i { flex: 0 0 auto; color: var(--muted); }
+.program-sessions { display: grid; gap: 1rem; }
+.program-session { scroll-margin-top: 6rem; }
+.program-session > header { margin-bottom: 1rem; }
+.program-session > header h2 { margin: 0; font-size: 1.45rem; letter-spacing: -.03em; }
+.program-session > header p:not(.eyebrow) { margin: .45rem 0 0; color: var(--muted); }
+.program-exercise-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.program-exercise, .protocol-card { padding: 1rem; background: var(--surface-soft); border: 1px solid transparent; border-radius: .8rem; }
+.program-exercise-heading { display: flex; justify-content: space-between; align-items: start; gap: .75rem; }
+.program-exercise-heading h3 { margin: 0; font-size: 1rem; }
+.optional-badge, .protocol-label { display: inline-flex; padding: .2rem .45rem; color: var(--muted); background: var(--surface); border-radius: 999px; font-size: .62rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.program-prescription { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; margin-top: .8rem; }
+.program-prescription span { font-size: .8rem; font-weight: 650; }
+.program-prescription small { display: block; margin-bottom: .15rem; color: var(--muted); font-size: .62rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.program-note { margin: .8rem 0 0; padding-top: .7rem; color: var(--muted); border-top: 1px solid var(--border); font-size: .82rem; }
+.protocol-card { grid-column: 1 / -1; color: var(--text); background: color-mix(in srgb, var(--accent-soft) 72%, var(--surface)); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }
+.protocol-card .program-exercise-heading { align-items: center; }
+.protocol-card .program-exercise-heading > div { display: grid; gap: .35rem; }
+.protocol-card .program-exercise-heading > i { color: var(--accent); font-size: 1.5rem; }
+.protocol-card > p { margin: .65rem 0; color: var(--muted); }
+.protocol-card ol { margin: .7rem 0 1rem; padding-left: 1.2rem; }
+.protocol-card li + li { margin-top: .35rem; }
+.protocol-card > a { font-size: .82rem; font-weight: 700; text-decoration: none; }
+.pullup-examples { margin: 1rem 0; }
+.example-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
+.example-grid div { display: flex; justify-content: space-between; gap: .5rem; padding: .55rem .65rem; background: var(--surface); border-radius: .55rem; font-size: .78rem; }
+.example-grid span { color: var(--muted); }
+.session-note { display: flex; gap: .55rem; align-items: start; margin: 1rem 0 0; padding: .75rem; color: var(--muted); background: var(--surface-soft); border-radius: .65rem; font-size: .82rem; }
+.session-note i { color: var(--accent); }
+.block-guidance { margin-top: 1rem; }
+
 .category-tabs { display: flex; gap: .5rem; margin-bottom: 1.5rem; overflow-x: auto; scrollbar-width: thin; padding-bottom: .35rem; }
 .category-tab { flex: 0 0 auto; padding: .6rem .9rem; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 999px; font-size: .84rem; font-weight: 700; transition: var(--transition); }
 .category-tab:hover { color: var(--text); border-color: var(--accent); }
@@ -168,6 +215,7 @@ a { color: var(--accent); }
   .hero-summary { grid-template-columns: repeat(3, 1fr); }
   .hero-summary div { flex-direction: column; gap: .4rem; }
   .overview-grid, .focus-grid, .weekly-grid { grid-template-columns: repeat(2, 1fr); }
+  .block-summary { grid-template-columns: 1fr; }
   .filter-panel { top: .75rem; }
 }
 
@@ -178,6 +226,7 @@ a { color: var(--accent); }
   .hero-summary { grid-template-columns: 1fr; }
   .hero-summary div { flex-direction: row; }
   .overview-grid, .card-grid, .focus-grid, .warmup-grid, .weekly-grid, .joint-health-grid { grid-template-columns: 1fr; }
+  .program-exercise-list, .program-prescription, .example-grid { grid-template-columns: 1fr; }
   .detail-grid { grid-template-columns: 1fr; }
   .detail-block.full { grid-column: auto; }
   .routine-list { grid-template-columns: 1fr; }

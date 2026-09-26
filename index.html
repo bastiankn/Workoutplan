@@ -39,6 +39,7 @@
         <div class="collapse navbar-collapse order-xl-2" id="mainNav">
           <ul class="navbar-nav ms-xl-auto me-xl-3 mb-3 mb-xl-0" id="sectionNav">
             <li class="nav-item"><a class="nav-link active" href="#overview" data-section-link="overview">Overview</a></li>
+            <li class="nav-item"><a class="nav-link" href="#current-block" data-section-link="current-block">Current Block</a></li>
             <li class="nav-item"><a class="nav-link" href="#gym" data-section-link="gym">Gym</a></li>
             <li class="nav-item"><a class="nav-link" href="#calisthenics" data-section-link="calisthenics">Calisthenics</a></li>
             <li class="nav-item"><a class="nav-link" href="#skills" data-section-link="skills">Skills</a></li>
@@ -59,8 +60,8 @@
           <h1>Train with context.</h1>
           <p class="hero-copy">Gym programming, calisthenics alternatives, skill progressions, mobility, and joint-health work—organized in one quiet, searchable knowledge base.</p>
           <div class="d-flex flex-wrap gap-2 mt-4">
-            <button class="btn btn-primary" data-open-section="gym">Browse gym plan</button>
-            <button class="btn btn-outline-secondary" data-open-section="weekly">View weekly framework</button>
+            <button class="btn btn-primary" data-open-section="current-block">Open current block</button>
+            <button class="btn btn-outline-secondary" data-open-section="gym">Browse exercise reference</button>
           </div>
         </div>
         <div class="hero-summary" aria-label="Knowledge base summary">
@@ -77,6 +78,18 @@
         <div class="section-heading compact-heading"><div><p class="eyebrow">Original notes</p><h2>General training principles</h2></div></div>
         <div class="row g-3" id="principlesList"></div>
       </div>
+    </section>
+
+    <section class="view" id="current-block" data-section="current-block" tabindex="-1">
+      <div class="section-heading current-block-heading">
+        <div>
+          <p class="eyebrow">Active eight-week plan</p>
+          <h1>Current block</h1>
+          <p>Pull-up endurance, upper-body and calf growth, and lower-body maintenance. The original plans remain available as reference.</p>
+        </div>
+        <span class="active-block-badge"><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i> Active</span>
+      </div>
+      <div id="currentBlockContent"></div>
     </section>
 
     <section class="view" id="gym" data-section="gym" tabindex="-1">
@@ -112,7 +125,7 @@
 
     <section class="view" id="weekly" data-section="weekly" tabindex="-1">
       <div class="section-heading">
-        <div><p class="eyebrow">Flexible framework</p><h1>Weekly plan</h1><p>Rotate sessions in order according to recovery and schedule. No fixed weekdays required.</p></div>
+        <div><p class="eyebrow">Original flexible framework</p><h1>Weekly plan</h1><p>The previous cycles and placement notes are retained here for reference. Use Current Block for the active plan.</p></div>
       </div>
       <div id="weeklyContent"></div>
     </section>
